@@ -21,3 +21,7 @@ double Block_class::get_output(){
 void Block_class::set_input(double inpt){
   input_ports.push_back(inpt);
 }
+
+void Block_class::set_output(double outpt){
+  this->output_port = outpt;
+}
