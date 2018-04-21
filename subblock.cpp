@@ -4,17 +4,17 @@
 * Eliska Kadlecova, Daniel Doubek
 */
 
-#include "sumblock.hpp"
+#include "subblock.hpp"
 
-Sum_block_class::Sum_block_class(){
-  this->type = sum;
+Sub_block_class::Sub_block_class(){
+  this->type = sub;
 }
 
-double Sum_block_class::count(){
+double Sub_block_class::count(){
   double res, temp = 0.0;
   int size = input_ports.size();
   for (int i = 0; i < size; i++) {
-    temp = temp + input_ports.at(i);
+    temp = temp - input_ports.at(i);
   }
   res = temp;
   return res;

@@ -3,19 +3,19 @@
 * FIT VUT
 * Eliska Kadlecova, Daniel Doubek
 */
-#ifndef SUMBLOCK_H
-#define SUMBLOCK_H
+#ifndef MULBLOCK_H
+#define MULBLOCK_H
 
 #include <iostream>
 #include "block.hpp"
 
 using namespace std;
 
-class Sum_block_class : public Block_class {
+class Mul_block_class : public Block_class {
 public:
-  Sum_block_class();
-  virtual ~Sum_block_class (){}
+  Mul_block_class();
+  virtual ~Mul_block_class (){}
 
   double count();
 };
-#endif //SUMBLOCK_H
+#endif //MULBLOCK_H
