@@ -11,7 +11,7 @@
 
 using namespace std;
 
-enum block_type {NONE, sum, sub, mul, idiv, less, great};
+enum block_type {NONE, sum, sub, mul, idiv, lt, gt};
 
 class Block_class {
 protected:

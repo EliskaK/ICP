@@ -7,14 +7,19 @@
 
 #include "block.hpp"
 #include "sumblock.hpp"
+#include "greatblock.hpp"
+#include "lessblock.hpp"
+#include "idivblock.hpp"
+#include "mulblock.hpp"
+#include "subblock.hpp"
 #include "scheme.hpp"
 
 using namespace std;
 
 int main() {
   //Scheme_class scheme1;
-  Sum_block_class *block1 = new Sum_block_class();
-  Sum_block_class *block2 = new Sum_block_class();
+  Sub_block_class *block1 = new Sub_block_class();
+  Idiv_block_class *block2 = new Idiv_block_class();
   double connect1 = 1.0;
   double connect2 = 2.0;
 
@@ -23,7 +28,7 @@ int main() {
 
   block1->set_input(1.1);
   block1->set_input(connect2);
-  
+
   block2->set_input(connect1);
   block2->set_input(2.6);
 

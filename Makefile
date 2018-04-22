@@ -6,7 +6,7 @@ CC=g++
 CFLAGS= -pthread -Wall -Wextra
 
 TARGET=blockeditor
-OBJECTS=main.o block.o scheme.o sumblock.o
+OBJECTS=main.o block.o scheme.o sumblock.o greatblock.o idivblock.o lessblock.o mulblock.o subblock.o
 
 all: clean $(TARGET)
 

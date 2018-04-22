@@ -7,7 +7,7 @@
 #include "greatblock.hpp"
 
 Great_block_class::Great_block_class(){
-  this->type = great;
+  this->type = gt;
 }
 
 double Great_block_class::count(){

@@ -7,7 +7,7 @@
 #include "lessblock.hpp"
 
 Less_block_class::Less_block_class(){
-  this->type = less;
+  this->type = lt;
 }
 
 double Less_block_class::count(){
