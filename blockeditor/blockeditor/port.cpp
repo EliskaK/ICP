@@ -3,7 +3,7 @@
 
 
 Port::Port(QPointF position, bool Output,QGraphicsItem *parent) : QGraphicsEllipseItem(parent) {
-    setRect(position.x(), position.y(),10,10);
+    setRect(position.x(), position.y(),7,7);
     wire = NULL;
     QBrush brush(Qt::gray);
     setBrush(brush);

@@ -61,9 +61,9 @@ void Block::portsChange(){
         Port *port = ports[i-1];
 
         if (port->isOutput() == false){
-            port->setRect(x()+(i*space),y()+2,10,10);
+            port->setRect(x(),y()+(i*space)-2,7,7);
         } else{
-            port->setRect(x()+(image/2),y()+image-11,10,10);
+            port->setRect(x()+image-6,y()+(image/2)-3,7,7);
         }
     }
 }

@@ -47,13 +47,13 @@ void Qscheme::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent){
         blok->setPos(mouseEvent->scenePos());
 
         double image = (double) blok->getSizeofBlock();
-        double margin = (double) (image / (inputs+1));
+        double space = (double) (image / (inputs+1));
         for(int i = 1; i < inputs+1; i++){
-            Port *port = new Port(QPointF(mouseEvent->scenePos().x()+(i*margin),mouseEvent->scenePos().y()+2),false);
+            Port *port = new Port(QPointF(mouseEvent->scenePos().x(),mouseEvent->scenePos().y()+(i*space)-2),false);
             addItem(port);
             blok->addPort(port);
         }
-        Port *port = new Port(QPointF(mouseEvent->scenePos().x()+(image/2),mouseEvent->scenePos().y()+image-11),true);
+        Port *port = new Port(QPointF(mouseEvent->scenePos().x()+image-6,mouseEvent->scenePos().y()+(image/2)-3),true);
         addItem(port);
         blok->addPort(port);
         emit blockAdd(blok);
