@@ -3,7 +3,7 @@
 
 #include <QGraphicsTextItem>
 #include <QPen>
-
+#include "port.h"
 class QFocusEvent;
 class QGraphicsItem;
 class QGraphicsScene;
@@ -19,6 +19,7 @@ public:
     Textclass(QGraphicsItem *parent = 0);
 
     int type() const override { return Type; }
+    void addPort(Port * port);
 
 signals:
     void lostFocus(Textclass *textblock);
@@ -28,6 +29,8 @@ protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
     void focusOutEvent(QFocusEvent *event) override;
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
+private:
+    Port* port;
 };
 
 #endif // TEXTCLASS_H

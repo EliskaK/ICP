@@ -63,9 +63,13 @@ void Qscheme::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent){
         text_block->setZValue(1000.0);
         text_block->setDefaultTextColor(Qt::black);
         text_block->setTextInteractionFlags(Qt::TextEditorInteraction);
+        text_block->setTextWidth(70);
         connect(text_block, SIGNAL(lostFocus(Textclass*)), this, SLOT(lostFocus_slot(Textclass*)));
         addItem(text_block);
         text_block->setPos(mouseEvent->scenePos());
+        Port *port = new Port(QPointF(mouseEvent->scenePos().x()+70,mouseEvent->scenePos().y()),true);
+        addItem(port);
+        text_block->addPort(port);
         emit textAdd(text_block);
     }
     else if(mode == Wiremode){
