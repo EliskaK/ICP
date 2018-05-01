@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>images/blockeditor.png</file>
+        <file>images/erase.png</file>
+        <file>images/gt.png</file>
+        <file>images/idiv.png</file>
+        <file>images/lt.png</file>
+        <file>images/mul.png</file>
+        <file>images/play.png</file>
+        <file>images/step.png</file>
+        <file>images/sub.png</file>
+        <file>images/sum.png</file>
+        <file>images/text.png</file>
+        <file>images/wire.png</file>
+        <file>images/move.png</file>
+    </qresource>
+</RCC>
