@@ -6,9 +6,10 @@ CC=g++
 CFLAGS= -pthread -Wall -Wextra
 
 TARGET=blockeditor
-OBJECTS=main.o block.o scheme.o sumblock.o greatblock.o idivblock.o lessblock.o mulblock.o subblock.o
+OBJECTS=wire.o qscheme.o qblockeditor.o port.o main.o block.o
 
-all: clean $(TARGET)
+all: clean 
+	cd src && make  && mv blockeditor ../blockeditor
 
 $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
@@ -17,9 +18,10 @@ run: all
 	./blockeditor
 
 doxygen:
-			#TODO
+	cd src/ && doxygen Doxyfile && cp -r ./html ../doc && rm -rf ./html
 clean:
 	rm -f $(OBJECTS) $(TARGET)
+	cd src && make clean
 
 pack: clean
 	zip xkadle34-xdoube03.zip * ./doc/* ./examples/* ./src/* Makefile README.txt
