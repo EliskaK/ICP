@@ -29,6 +29,7 @@ void Qscheme::setBlockType(block_type typ){
 void Qscheme::setInputs(int cnt){
     this->inputs = cnt;
 }
+
 void Qscheme::lostFocus_slot(Textclass* textitem){
     QTextCursor cursor = textitem->textCursor();
     cursor.clearSelection();
@@ -38,6 +39,7 @@ void Qscheme::lostFocus_slot(Textclass* textitem){
         textitem->deleteLater();
     }
 }
+
 void Qscheme::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent){
     if (mouseEvent->button() != Qt::LeftButton)
             return;
@@ -121,6 +123,8 @@ void Qscheme::mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent){
                     wire->setZValue(1000.0);
                     addItem(wire);
                     wire->updatePos();
+                    qDebug() << "wire vytvoren";
+                    qDebug() << endItem->getVal();
                  }
             }
         }

@@ -4,7 +4,7 @@
 
 Block::Block(block_type type, QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
-    this->type = type;
+    this->blocktype = type;
     if(type == sum){
         myPixmap = QPixmap(":/img/images/sum.png");
         setPixmap(myPixmap);
@@ -34,7 +34,7 @@ Block::Block(block_type type, QGraphicsItem *parent): QGraphicsPixmapItem(parent
     setFlag(QGraphicsItem::ItemSendsGeometryChanges, true);
 }
 block_type Block::get_type_of_block(){
-  return type;
+  return blocktype;
 }
 
 QVariant Block::itemChange(GraphicsItemChange change, const QVariant &value){
@@ -54,8 +54,12 @@ void Block::addPort(Port * port){
     ports.append(port);
 }
 
+QList<Port*> Block::getPorts(){
+    return ports;
+}
+
 void Block::portsChange(){
-    double image = (double)myPixmap.height(); //velikost obrazku
+    double image = (double)getSizeofBlock(); //velikost obrazku
     double space = image / (ports.count());
     for (int i = 1; i < ports.count()+1; i++){
         Port *port = ports[i-1];
@@ -70,4 +74,28 @@ void Block::portsChange(){
 
 int Block::getSizeofBlock(){
     return this->myPixmap.height();
+}
+
+void Block::calculate(){
+    block_type typ = this->get_type_of_block();
+    valFromPort();
+    if(typ == sum){
+        double temp = 0.0;
+        foreach (double val, values) {
+            temp = temp + val;
+        }
+    }
+}
+
+void Block::valFromPort(){
+   foreach (Port* port, this->ports) {
+       values.append(port->getVal());
+    }
+   qDebug() << "values in block" << values;
+
+}
+
+void Block::removeBlockports(){
+    qDeleteAll(ports.begin(), ports.end());
+    ports.clear();
 }

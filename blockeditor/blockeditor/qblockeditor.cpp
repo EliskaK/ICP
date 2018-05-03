@@ -33,11 +33,11 @@ QBlockEditor::QBlockEditor(QWidget *parent) : QMainWindow(parent)
 
     setCentralWidget(widget);
 }
-
+/*
 QBlockEditor::~QBlockEditor()
 {
     delete ui;
-}
+}*/
 void QBlockEditor::createToolbar(){
     toolbar = addToolBar(tr("Edit"));
 
@@ -58,6 +58,8 @@ void QBlockEditor::createToolbar(){
     toolbar->addWidget(wirebtn);
     toolbar->addWidget(movebtn);
     toolbar->addAction(eraseAction);
+    toolbar->addAction(playAction);
+    toolbar->addAction(stepAction);
 }
 void QBlockEditor::pointerGroupclicked(int){
     scheme->setMode(Mode(pointerTypeGroup->checkedId()));
@@ -142,12 +144,14 @@ void QBlockEditor::createActions(){
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(about()));
 
 
-    //wireAction = new QAction(QIcon(":/img/images/wire.png"), tr("Spoj"), this);
-    //connect(wireAction, SIGNAL(triggered()), this, SLOT())
     eraseAction = new QAction(QIcon(":/img/images/erase.png"), tr("Smazat"), this);
     connect(eraseAction, SIGNAL(triggered()), this, SLOT(eraseblock()));
-    //playAction = new QAction(QIcon(":/img/images/play.png"), tr("Spustit"), this);
-    //stepAction = new QAction(QIcon(":/img/images/step.png"), tr("Krok"), this);
+
+
+    playAction = new QAction(QIcon(":/img/images/play.png"), tr("Spustit"), this);
+    connect(playAction, SIGNAL(triggered()), this, SLOT(calc()));
+    stepAction = new QAction(QIcon(":/img/images/step.png"), tr("Krok"), this);
+    connect(stepAction, SIGNAL(triggered()), this, SLOT(step_calc()));
 
 }
 void QBlockEditor::createMenu(){
@@ -161,10 +165,15 @@ void QBlockEditor::createMenu(){
 
 }
 void QBlockEditor::textAdd(QGraphicsItem *){
-     qDebug() << "tady";
-     btn_group->button(text)->setChecked(false);
+     btn_group->button(int(text))->setChecked(false);
      scheme->setMode(Mode(pointerTypeGroup->checkedId()));
-     qDebug() << "scheme: " << scheme->getMode();
+}
+void QBlockEditor::calc(){
+    qDebug() << "calc";
+
+}
+void QBlockEditor::step_calc(){
+
 }
 void QBlockEditor::newfile(){
     // TODO
@@ -182,6 +191,14 @@ void QBlockEditor::open(){
 void QBlockEditor::eraseblock(){
     // TODO
     qDebug() << "erase";
+    if(scheme->selectedItems().count()){
+        //if(scheme->selectedItems().first()->type() == Block::Type){
+            Block* b = qgraphicsitem_cast<Block*>(scheme->selectedItems().first());
+            //b->removeBlockports();
+            delete b;
+        //}
+    }
+
 }
 
 void QBlockEditor::about(){

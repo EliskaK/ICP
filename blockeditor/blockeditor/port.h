@@ -13,6 +13,7 @@ public:
     Wire* getWire();
     bool isValueSet();
     void addWire(Wire* wire);
+    double getVal();
 
 private:
     double val;

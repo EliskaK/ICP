@@ -20,6 +20,7 @@ public:
     void updatePos();
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *,QWidget *);
+    void setValTo();
 private:
     Port* mystart;
     Port* myend;

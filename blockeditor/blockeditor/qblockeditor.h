@@ -24,7 +24,7 @@ class QBlockEditor : public QMainWindow
 
 public:
     explicit QBlockEditor(QWidget *parent = 0);
-    ~QBlockEditor();
+    ~QBlockEditor(){}
 
 
 
@@ -57,7 +57,6 @@ private:
     QAction *saveAction;
     QAction *openAction;
     QAction *newAction;
-    QAction *wireAction;
     QAction *eraseAction;
     QAction *playAction;
     QAction *stepAction;
@@ -80,6 +79,9 @@ private slots:
     void newfile();
     void open();
     void save();
+
+    void calc();
+    void step_calc();
 
 };
 

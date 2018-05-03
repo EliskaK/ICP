@@ -24,3 +24,6 @@ bool Port::isValueSet(){
 void Port::addWire(Wire *wire){
     this->wire = wire;
 }
+double Port::getVal(){
+    return val;
+}

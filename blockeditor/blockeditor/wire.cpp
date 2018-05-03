@@ -14,6 +14,7 @@ Wire::Wire(Port* fromblock, Port* toblock, QGraphicsItem *parent) : QGraphicsLin
     myend = toblock;
     setFlag(QGraphicsItem::ItemIsSelectable, true);
     setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    setValTo();
 }
 
 void Wire::updatePos(){
@@ -36,4 +37,12 @@ void Wire::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
     painter->setPen(QPen(Qt::black,2));
     painter->drawLine(QPointF(mystart->boundingRect().topLeft().x()+5.0,mystart->boundingRect().topLeft().y()+5.0), QPointF(myend->boundingRect().topLeft().x()+5.0,myend->boundingRect().topLeft().y()+5.0));
 
+}
+
+void Wire::setValTo(){
+    double tempval;
+    tempval = mystart->getVal();
+    qDebug() << "FROM port val " << tempval;
+    myend->setVal(tempval);
+    qDebug() << "TO port val " << myend->getVal();
 }
