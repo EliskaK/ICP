@@ -29,3 +29,5 @@ Specifikace požadavků:
     - Další podmínky
       - najetím myši nad propoj se zobrazí aktuální stav dat
       - zvažte způsob jednoduchého rozšiřování systému o nové bloky a data
+
+Hodnocení: 75/100
